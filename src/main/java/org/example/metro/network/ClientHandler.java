@@ -1,8 +1,12 @@
 package org.example.metro.network;
 
 
+import sun.security.krb5.internal.Ticket;
+
 import java.io.*;
 import java.net.Socket;
+
+import static java.lang.Double.*;
 
 /**
  * ClientHandler runs in its own thread and handles all communication
@@ -77,8 +81,7 @@ public class ClientHandler implements Runnable {
                 // BOOK|from|to|price|username
                 if (parts.length < 5) return "ERROR|Incomplete booking data";
                 // Build a serialised Ticket string on the server side
-                metro.model.Ticket t = new metro.model.Ticket(parts[1], parts[2],
-                        Double.parseDouble(parts[3]), parts[4]);
+                Ticket t = new Ticket(parts[1], parts[2], parseDouble(parts[3]), parts[4]);
                 server.addTicket(t.serialise());
                 return "BOOK_OK|" + t.serialise();
             }

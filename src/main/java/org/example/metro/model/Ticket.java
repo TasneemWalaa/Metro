@@ -1,4 +1,4 @@
-package org.example.metro.model;
+.modpackage org.example.metroel;
     import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
