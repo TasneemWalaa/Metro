@@ -1,7 +1,7 @@
 package org.example.metro.network;
 
 
-import sun.security.krb5.internal.Ticket;
+import org.example.metro.model.Ticket;
 
 import java.io.*;
 import java.net.Socket;
@@ -81,7 +81,7 @@ public class ClientHandler implements Runnable {
                 // BOOK|from|to|price|username
                 if (parts.length < 5) return "ERROR|Incomplete booking data";
                 // Build a serialised Ticket string on the server side
-                Ticket t = new Ticket(parts[1], parts[2], parseDouble(parts[3]), parts[4]);
+                org.example.metro.model.Ticket t = new Ticket(parts[1], parts[2], parseDouble(parts[3]), parts[4]);
                 server.addTicket(t.serialise());
                 return "BOOK_OK|" + t.serialise();
             }

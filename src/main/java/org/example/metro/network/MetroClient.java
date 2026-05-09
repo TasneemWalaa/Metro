@@ -1,5 +1,6 @@
 package org.example.metro.network;
 
+
 import org.example.metro.model.Ticket;
 
 import java.io.*;
@@ -86,12 +87,14 @@ public class MetroClient {
      * @throws IOException on network error.
      * @throws IllegalStateException if the server rejects the booking.
      */
-    public Ticket bookTicket(String from, String to, double price, String username) throws IOException {
+    public org.example.metro.model.Ticket bookTicket(String from, String to, double price, String username) throws IOException {
         send("BOOK|" + from + "|" + to + "|" + price + "|" + username);
         String resp = receive();
+
         if (resp.startsWith("BOOK_OK|")) {
             return Ticket.deserialise(resp.substring("BOOK_OK|".length()));
         }
+
         throw new IllegalStateException(resp.replace("ERROR|", ""));
     }
 

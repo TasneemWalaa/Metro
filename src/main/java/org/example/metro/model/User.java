@@ -1,6 +1,9 @@
 package org.example.metro.model;
 
 public class User {
+    public User(String username, String password) {
+    }
+
     /**
      * Base class representing a system user.
      * Demonstrates encapsulation with private fields and public getters/setters.
