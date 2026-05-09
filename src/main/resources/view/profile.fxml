@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.metro.controller.ProfileController"
+            stylesheets="@../css/style.css"
+            prefWidth="520" prefHeight="480">
+
+    <top>
+        <VBox styleClass="header-bar" alignment="CENTER">
+            <padding><Insets top="24" right="20" bottom="24" left="20"/></padding>
+            <Label text="👤 My Profile" styleClass="title-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <padding><Insets top="30" right="70" bottom="30" left="70"/></padding>
+
+            <!-- Avatar placeholder -->
+            <Label text="👤" style="-fx-font-size: 60;"/>
+
+            <!-- Info card -->
+            <VBox styleClass="info-card" spacing="12">
+                <GridPane hgap="20" vgap="10">
+                    <Label text="Full Name"     styleClass="field-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="fullNameLabel" text="—" styleClass="info-value" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Username"      styleClass="field-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label fx:id="usernameLabel" text="—" styleClass="info-value" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Tickets Booked" styleClass="field-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="ticketCountLabel" text="—" styleClass="info-value" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="140"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+                </GridPane>
+
+                <Separator/>
+                <Label fx:id="displayInfoLabel" text="" styleClass="subtitle-label" wrapText="true"/>
+            </VBox>
+
+            <HBox spacing="12" alignment="CENTER">
+                <Button fx:id="backButton" text="← Dashboard" onAction="#handleBack" styleClass="nav-button"/>
+                <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout" styleClass="danger-button"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

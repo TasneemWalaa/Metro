@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.metro.controller.StationsController"
+            stylesheets="@../css/style.css"
+            prefWidth="720" prefHeight="540">
+
+    <top>
+        <VBox styleClass="header-bar" alignment="CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="🗺️ Metro Lines &amp; Stations" styleClass="title-label"/>
+            <Label text="Cairo Metro Network" styleClass="subtitle-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <HBox spacing="12">
+            <padding><Insets top="16" right="16" bottom="10" left="16"/></padding>
+
+            <!-- Line 1 -->
+            <VBox spacing="6" HBox.hgrow="ALWAYS">
+                <Label text="Line 1 — Red" styleClass="line-label-red"/>
+                <ListView fx:id="line1List" VBox.vgrow="ALWAYS" styleClass="station-list"/>
+            </VBox>
+
+            <!-- Line 2 -->
+            <VBox spacing="6" HBox.hgrow="ALWAYS">
+                <Label text="Line 2 — Yellow" styleClass="line-label-yellow"/>
+                <ListView fx:id="line2List" VBox.vgrow="ALWAYS" styleClass="station-list"/>
+            </VBox>
+
+            <!-- Line 3 -->
+            <VBox spacing="6" HBox.hgrow="ALWAYS">
+                <Label text="Line 3 — Blue" styleClass="line-label-blue"/>
+                <ListView fx:id="line3List" VBox.vgrow="ALWAYS" styleClass="station-list"/>
+            </VBox>
+        </HBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="16" bottom="16" left="16"/></padding>
+            <Button fx:id="backButton" text="← Back to Dashboard" onAction="#handleBack"
+                    styleClass="link-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>

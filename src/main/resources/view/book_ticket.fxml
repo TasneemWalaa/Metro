@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.metro.controller.BookTicketController"
+            stylesheets="@../css/style.css"
+            prefWidth="520" prefHeight="480">
+
+    <top>
+        <VBox styleClass="header-bar" alignment="CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="🎫 Book a Ticket" styleClass="title-label"/>
+            <Label text="Select your route and confirm booking" styleClass="subtitle-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="18">
+            <padding><Insets top="30" right="70" bottom="30" left="70"/></padding>
+
+            <GridPane hgap="16" vgap="14">
+                <Label text="Departure Station:" styleClass="field-label"
+                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="fromCombo" promptText="Select departure…" maxWidth="Infinity"
+                          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Destination Station:" styleClass="field-label"
+                       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="toCombo" promptText="Select destination…" maxWidth="Infinity"
+                          GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Estimated Price:" styleClass="field-label"
+                       GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label fx:id="priceLabel" text="—" styleClass="price-label"
+                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <columnConstraints>
+                    <ColumnConstraints minWidth="150"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+            </GridPane>
+
+            <Region prefHeight="10"/>
+
+            <Button fx:id="bookButton" text="✅  Confirm Booking" onAction="#handleBook"
+                    styleClass="primary-button" maxWidth="Infinity" prefHeight="46"/>
+            <Button fx:id="backButton" text="← Back to Dashboard" onAction="#handleBack"
+                    styleClass="link-button" maxWidth="Infinity"/>
+        </VBox>
+    </center>
+</BorderPane>

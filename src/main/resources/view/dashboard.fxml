@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.metro.controller.DashboardController"
+            stylesheets="@../css/style.css"
+            prefWidth="520" prefHeight="520">
+
+    <top>
+        <VBox styleClass="header-bar" alignment="CENTER">
+            <padding><Insets top="24" right="20" bottom="24" left="20"/></padding>
+            <Label text="🚇 Metro Booking System" styleClass="title-label"/>
+            <Label fx:id="welcomeLabel" text="Welcome!" styleClass="subtitle-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="16">
+            <padding><Insets top="30" right="80" bottom="30" left="80"/></padding>
+
+            <Label text="What would you like to do?" styleClass="field-label"/>
+
+            <Button text="🎫  Book a Ticket"         onAction="#handleBookTicket"
+                    styleClass="primary-button"  maxWidth="Infinity" prefHeight="48"/>
+            <Button text="📋  My Tickets"            onAction="#handleMyTickets"
+                    styleClass="nav-button"      maxWidth="Infinity" prefHeight="48"/>
+            <Button text="🗺️   Metro Stations"        onAction="#handleMetroStations"
+                    styleClass="nav-button"      maxWidth="Infinity" prefHeight="48"/>
+            <Button text="👤  Profile"               onAction="#handleProfile"
+                    styleClass="nav-button"      maxWidth="Infinity" prefHeight="48"/>
+
+            <Region prefHeight="10"/>
+
+            <Button fx:id="logoutButton" text="Logout" onAction="#handleLogout"
+                    styleClass="danger-button" maxWidth="Infinity" prefHeight="42"/>
+        </VBox>
+    </center>
+</BorderPane>

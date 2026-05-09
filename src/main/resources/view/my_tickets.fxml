@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.metro.controller.MyTicketsController"
+            stylesheets="@../css/style.css"
+            prefWidth="680" prefHeight="520">
+
+    <top>
+        <VBox styleClass="header-bar" alignment="CENTER">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="📋 My Tickets" styleClass="title-label"/>
+            <Label fx:id="statusLabel" text="Loading…" styleClass="subtitle-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12">
+            <padding><Insets top="16" right="16" bottom="10" left="16"/></padding>
+
+            <TableView fx:id="ticketTable" VBox.vgrow="ALWAYS" styleClass="ticket-table">
+                <columns>
+                    <TableColumn fx:id="idCol"    text="Ticket #"     prefWidth="80"/>
+                    <TableColumn fx:id="fromCol"  text="From"         prefWidth="160"/>
+                    <TableColumn fx:id="toCol"    text="To"           prefWidth="160"/>
+                    <TableColumn fx:id="priceCol" text="Price (EGP)"  prefWidth="100"/>
+                    <TableColumn fx:id="dateCol"  text="Date"         prefWidth="140"/>
+                </columns>
+                <placeholder><Label text="No tickets booked yet." styleClass="field-label"/></placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="12" alignment="CENTER_RIGHT">
+            <padding><Insets top="10" right="16" bottom="16" left="16"/></padding>
+            <Button text="🔄 Refresh" onAction="#handleRefresh" styleClass="nav-button"/>
+            <Button fx:id="backButton" text="← Back" onAction="#handleBack" styleClass="link-button"/>
+        </HBox>
+    </bottom>
+</BorderPane>

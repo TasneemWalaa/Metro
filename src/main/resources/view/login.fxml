@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.metro.controller.LoginController"
+            stylesheets="@../css/style.css"
+            prefWidth="520" prefHeight="480">
+
+    <center>
+        <VBox alignment="CENTER" spacing="18">
+            <padding><Insets top="40" right="60" bottom="40" left="60"/></padding>
+
+            <!-- Header -->
+            <Label text="🚇 Metro Booking" styleClass="title-label"/>
+            <Label text="Sign in to your account" styleClass="subtitle-label"/>
+
+            <!-- Form -->
+            <VBox spacing="10" maxWidth="340">
+                <Label text="Username" styleClass="field-label"/>
+                <TextField fx:id="usernameField" promptText="Enter username" styleClass="input-field"/>
+
+                <Label text="Password" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField" promptText="Enter password" styleClass="input-field"/>
+            </VBox>
+
+            <!-- Status -->
+            <Label fx:id="statusLabel" text="" styleClass="status-label"/>
+
+            <!-- Buttons -->
+            <VBox spacing="10" maxWidth="340">
+                <Button fx:id="loginButton" text="Login" onAction="#handleLogin"
+                        styleClass="primary-button" maxWidth="Infinity"/>
+                <Button text="Don't have an account? Register" onAction="#handleGoToRegister"
+                        styleClass="link-button" maxWidth="Infinity"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
