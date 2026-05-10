@@ -47,7 +47,7 @@ public class LoginController {
 
                 // Build session on success
                 Passenger passenger = new Passenger(username, password, fullName);
-                SessionManager.getInstance().login(passenger);
+                SessionManager.  getInstance().login(passenger);
 
                 Platform.runLater(() -> navigateTo("dashboard.fxml", "Metro — Dashboard"));
 
