@@ -54,16 +54,17 @@ public class ProfileController implements Initializable {
         navigateTo("login.fxml", "Metro — Login");
     }
 
-    private void navigateTo(String fxml, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/metro/view/" + fxml));
-            Parent root = loader.load();
-            // هنا بنستخدم الـ backButton عشان نوصل للـ Stage
-            Stage stage = (Stage) backButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle(title);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
+            private void navigateTo(String fxml, String title) {
+                try {
+                    FXMLLoader loader = new FXMLLoader(
+                            getClass().getResource("/org/example/metro/view/" + fxml));
+                    Parent root = loader.load();
+                    Stage stage = (Stage) logoutButton.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle(title);
+                } catch (IOException e) {
+                    System.err.println("Navigation error: " + e.getMessage());
+                }
+            }
 }

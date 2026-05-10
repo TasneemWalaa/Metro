@@ -10,7 +10,9 @@ import org.example.metro.network.MetroServer;
  * Application entry point.
  * Starts the embedded MetroServer as a daemon thread, then launches the JavaFX GUI.
  */
-public class MainApp extends Application {
+public class
+
+MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {

@@ -7,12 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.example.metro.network.MetroClient;
+import org.example.metro.model.Passenger;
+import org.example.metro.util.SessionManager;
 
 import java.io.IOException;
 
-/**
- * Controller for register.fxml — handles new user registration.
- */
 public class RegisterController {
 
     @FXML private TextField fullNameField;
@@ -29,7 +28,6 @@ public class RegisterController {
         String password = passwordField.getText().trim();
         String confirm  = confirmPasswordField.getText().trim();
 
-        // Client-side validation
         if (fullName.isEmpty() || username.isEmpty() || password.isEmpty() || confirm.isEmpty()) {
             showStatus("All fields are required.", true);
             return;
@@ -53,10 +51,12 @@ public class RegisterController {
                 String error = client.register(username, password, fullName);
 
                 if (error == null) {
+                    // ✓ بعد Register ناجح — اعمل session وروح Dashboard
+                    Passenger passenger = new Passenger(username, password, fullName);
+                    SessionManager.getInstance().login(passenger);
+
                     Platform.runLater(() -> {
-                        showStatus("Registration successful! Please log in.", false);
-                        clearFields();
-                        registerButton.setDisable(false);
+                        navigateTo("dashboard.fxml", "Metro — Dashboard");
                     });
                 } else {
                     Platform.runLater(() -> {
@@ -82,8 +82,6 @@ public class RegisterController {
         navigateTo("login.fxml", "Metro — Login");
     }
 
-    // ---------- Helpers ----------
-
     private void clearFields() {
         fullNameField.clear();
         usernameField.clear();
@@ -99,7 +97,7 @@ public class RegisterController {
     private void navigateTo(String fxml, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/metro/view/" + fxml));
+                    getClass().getResource("/org/example/metro/view/" + fxml)); // ✓
             Parent root = loader.load();
             Stage stage = (Stage) registerButton.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -108,7 +106,4 @@ public class RegisterController {
             showStatus("Navigation error: " + e.getMessage(), true);
         }
     }
-    }
-
-
-
+}
