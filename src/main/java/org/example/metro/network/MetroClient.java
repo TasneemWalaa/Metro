@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MetroClient wraps a TCP socket connection to MetroServer.
+ * MetroClient wraps a TCP socket connection to MetroServer
  * All network I/O is done synchronously here; callers must invoke
  * these methods from a background thread to avoid blocking the JavaFX UI.
  */

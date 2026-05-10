@@ -7,7 +7,7 @@
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.example.metro.controller.MyTicketsController"
-            stylesheets="@../css/style.css"
+            stylesheets="@../../../../css/style.css"
             prefWidth="680" prefHeight="520">
 
     <top>

@@ -47,13 +47,13 @@ public class DashboardController implements Initializable {
     private void navigateTo(String fxml, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/metro/view/" + fxml));
+                    getClass().getResource("/org/example/metro/view/" + fxml));
             Parent root = loader.load();
             Stage stage = (Stage) logoutButton.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle(title);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Navigation error: " + e.getMessage());
         }
     }
 }

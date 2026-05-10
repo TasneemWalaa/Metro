@@ -15,14 +15,18 @@ import org.example.metro.util.SessionManager;
 import java.io.IOException;
 
 /**
- * Controller for login.fxml — handles user authentication.
+ * Controller for login.fxml — handles user authentication
  */
 public class LoginController {
 
-    @FXML private TextField usernameField;
-    @FXML private PasswordField passwordField;
-    @FXML private Label statusLabel;
-    @FXML private Button loginButton;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Button loginButton;
 
     @FXML
     private void handleLogin() {
@@ -84,7 +88,7 @@ public class LoginController {
     private void navigateTo(String fxml, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/metro/view/" + fxml));
+                    getClass().getResource("/org/example/metro/view/" + fxml)); // ✓ بيستخدم الـ fxml اللي بتبعتيه
             Parent root = loader.load();
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -93,4 +97,5 @@ public class LoginController {
             showStatus("Navigation error: " + e.getMessage(), true);
         }
     }
+
 }
