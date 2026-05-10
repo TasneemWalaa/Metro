@@ -20,9 +20,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Controller for my_tickets.fxml — displays the user's booked tickets in a TableView.
- */
+
 public class MyTicketsController implements Initializable {
 
     @FXML private TableView<Ticket> ticketTable;
