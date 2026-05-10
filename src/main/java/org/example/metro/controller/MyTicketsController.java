@@ -47,7 +47,7 @@ public class MyTicketsController implements Initializable {
         loadTickets();
     }
 
-    /** Fetches tickets from the server on a background thread. */
+
     private void loadTickets() {
         statusLabel.setText("Loading tickets…");
         String username = SessionManager.getInstance().getCurrentPassenger().getUsername();

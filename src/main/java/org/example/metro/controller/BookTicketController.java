@@ -16,9 +16,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-/**
- * Controller for book_ticket.fxml — lets passengers select stations and book.
- */
+
 public class BookTicketController implements Initializable {
 
     // Cairo Metro stations (Line 1, 2 & 3 samples)
