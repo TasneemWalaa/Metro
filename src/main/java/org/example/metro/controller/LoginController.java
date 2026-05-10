@@ -15,7 +15,7 @@ import org.example.metro.util.SessionManager;
 import java.io.IOException;
 
 /**
- * Controller for login.fxml — handles user authentication.
+ * Controller for login.fxml — handles user authentication
  */
 public class LoginController {
 

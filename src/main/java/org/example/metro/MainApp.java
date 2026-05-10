@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import org.example.metro.network.MetroServer;
 
 /**
- * Application entry point.
+ * Application entry point
  * Starts the embedded MetroServer as a daemon thread, then launches the JavaFX GUI.
  */
 public class
